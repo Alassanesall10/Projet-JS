@@ -1,0 +1,168 @@
+Devoir Javascript :
+
+A:Fonction manipulation de chaine:
+
+1-Inverser une chaîne : écrivez une fonction qui inverse une chaîne donnée.
+2-Compter les caractères : créez une fonction qui compte le nombre de caractères dans une chaîne.
+3-Mettre les mots en majuscule : implémentez une fonction qui met en majuscule la première lettre de chaque mot dans une phrase.
+
+B-Fonctions de tableau :
+
+1-Rechercher le maximum et le minimum : écrivez des fonctions pour trouver les valeurs maximales et minimales dans un tableau de nombres.
+2-Somme du tableau : créez une fonction qui calcule la somme de tous les éléments d'un tableau.
+3-Filtrer le tableau : implémentez une fonction qui filtre les éléments d'un tableau en fonction d'une condition donnée.
+
+C-Fonctions mathématiques :
+
+1-Factorielle : écrivez une fonction pour calculer la factorielle d'un nombre donné.
+2-Vérification des nombres premiers : créez une fonction pour vérifier si un nombre est premier ou non.
+3-Séquence de Fibonacci : implémentez une fonction pour générer la séquence de Fibonacci jusqu'à un nombre donné de termes. (recherche sur le net)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+  A- Fonctions de manipulation de chaînes
+
+1-Inverser une chaîne : 
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+
+console.log(reverseString("hello")); 
+
+--------------------------------
+
+2-Compter les caractères :
+function countCharacters(string) {
+    return string.length;
+}
+
+console.log(countCharacters("Hello"));
+
+
+------------------------------
+
+3-Mettre les premiers lettres de chaque mots en majuscule :
+const capitalized = function (sentence) {
+    let str = sentence.split(" ");
+    for(let i = 0; i < str.length; i++) {
+        str[i] = str[i][0].toUpperCase() + str[i].substring(1);
+    }
+    return str.join(" ");
+}
+
+console.log(capitalized("salut mr fall"));
+
+
+------------------------------
+
+  B-Fonctions de tableau
+
+1-Rechercher le maximum et le minimum :
+let arr = [ 13, 6, 3, 8, 5, 84, 35 ];
+
+let min = arr[ 0 ];
+let max = 0;
+let len = arr.length;
+
+for ( let i = 0; i < len - 1; i++ ){
+    if ( min > arr[ i ] ) {
+        min = arr [ i ];
+    }
+    if ( max < arr[ i ] ) {
+        max = arr[ i ];
+    }
+    min;
+    max;
+}
+
+console.log("Minimum value in array is : " + min );
+console.log("Maximum value in array is : " + max );
+
+
+------------------------------
+
+2-Somme du tableau :
+function sumArray(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++ ) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+const array = [ 2, 8, 5, 9, 1, 27];
+console.log(sumArray(array));
+
+-----------------------------
+
+3-Filtrer le tableau :
+function filterArray(arr, condition) {
+    let filteredArray = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (condition(arr[i], i, arr)) {
+            filteredArray.push(arr[i]);
+
+    }
+}
+
+return filteredArray
+
+}
+
+let numbers = [5, 7, 3, 8, 10, 2, 23, 84];
+let filteredNumbers = filterArray(numbers, num => num > 5);
+console.log(filteredNumbers);
+
+----------------------------
+
+  C-Fonctions mathématiques
+
+1-Factorielle :
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1;
+
+    }
+    return n* factorial(n - 1);
+
+}
+
+console.log(factorial(5));
+
+--------------------------
+
+2-Vérification des nombres premiers :
+function isPrime(nombre) {
+    if (nombre === 2 || nombre === 3) {
+        return true;
+    }
+
+    if (nombre === 1 || nombre % 2 === 0) {
+        return false;
+    }
+
+    for (let i = 3; i < Math.sqrt(nombre); i += 2) {
+        if (nombre % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+console.log(isPrime(9));
+
+---------------------------
+
+3-Séquence de Fibonacci :
+function sequenceFibonacci(n) {
+function fibonacci(n) {
+    if (n < 2) {
+        return n;
+    }
+
+    return fibonacci(n -1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(6));
+---------------------------
